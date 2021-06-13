@@ -1,0 +1,7 @@
+﻿
+
+interface IBadBonus
+    {
+    void BadBonus();
+    }
+
