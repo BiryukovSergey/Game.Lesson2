@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6466011294271345660}
   - component: {fileID: 487068279163120205}
   - component: {fileID: 8522407715379833710}
-  - component: {fileID: 77786536983959414}
+  - component: {fileID: 8890734800903964233}
   m_Layer: 0
   m_Name: BadBonus
   m_TagString: Untagged
@@ -94,7 +94,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &77786536983959414
+--- !u!114 &8890734800903964233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2965258576048699504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d12a0f2ace4abcb828a795f208a031, type: 3}
+  m_Script: {fileID: 11500000, guid: 9819f602164e28c43ada0f0f778deb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bonusConfiq: {fileID: 11400000, guid: a5368a39a8efd5643b5c84f1b76936c2, type: 2}
