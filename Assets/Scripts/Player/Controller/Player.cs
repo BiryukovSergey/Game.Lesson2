@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-namespace Player.Controller
+/*
+namespace Player.Controller         // <---------мусор
 {
     public class Player : PlayerMove
     {
@@ -13,4 +13,4 @@ namespace Player.Controller
            _player.Jump();
         }
     }
-}
+}*/
