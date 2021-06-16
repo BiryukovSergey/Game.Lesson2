@@ -6,8 +6,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     Constants constants = new Constants();
+    [SerializeField] private Camera _camera;
+    
     private float _moveX;
     private float _moveY;
+    private float _turnCameraX;
+    private float _turnCameraY;
+    
     private Vector3 _move;
     private Rigidbody _rigidbody;
     private bool _ground;
@@ -36,6 +41,7 @@ public class PlayerMove : MonoBehaviour
        _move = new Vector3(-_moveY, 0, _moveX);
        //transform.Rotate(Vector3.up,Space.World);
        _rigidbody.AddForce(_move * Speed,ForceMode.Force);
+       
     }
 
     protected void Jump()
