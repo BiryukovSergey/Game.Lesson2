@@ -1,6 +1,4 @@
-﻿
-
-interface IBadBonus
+﻿interface IBadBonus
     {
     void BadBonus();
     }
