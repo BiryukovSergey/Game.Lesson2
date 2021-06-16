@@ -6,7 +6,7 @@ public class Camera : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float Smooth = 3.0f;
-    [SerializeField] private Vector3 offset = new Vector3(2, 5, 0);
+    [SerializeField] private Vector3 offset = new Vector3(2, 8, 0);
 
     private GameObject _player;
     private Camera _camera;

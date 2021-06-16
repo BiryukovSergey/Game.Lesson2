@@ -2,27 +2,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+public delegate void Info(string text);
 public class PlayerMove : MonoBehaviour
 {
     Constants constants = new Constants();
-    [SerializeField] private Camera _camera;
     
     private float _moveX;
     private float _moveY;
-    private float _turnCameraX;
-    private float _turnCameraY;
-    
     private Vector3 _move;
     private Rigidbody _rigidbody;
     private bool _ground;
+    private string _text;
+    event Info infoConsole;
+    
 
     public float JumpForce;
     public float Speed;
+    
+    
+    public void ConsoleInfo(string text)
+    {
+        _text = text;
+        Debug.Log(_text);
+    }
 
+    public void NullSubscriber()
+    {
+        infoConsole -= ConsoleInfo;
+    }
     private void Start()
     {
        _rigidbody = GetComponent<Rigidbody>();
+       infoConsole += ConsoleInfo;
     }
 
     private void FixedUpdate()
@@ -57,10 +70,15 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       
+        if (!other.gameObject.CompareTag("Player"))
+        {
+            infoConsole("Вы взяли бонус!");
+            //NullSubscriber();
+        }
         if (other.GetComponent<IBonus>() != null)
         {
             other.GetComponent<IBonus>().Bonus();
+           
             
         }
         if(other.GetComponent<IBadBonus>() != null)

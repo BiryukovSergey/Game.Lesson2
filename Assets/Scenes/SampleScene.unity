@@ -2378,11 +2378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4c7dff2e9115041a894bf4bafc1c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offsetY: 0
-  _offsetX: 0
   _target: {fileID: 1429474933}
   Smooth: 4
-  offset: {x: 2, y: 5, z: 0}
+  offset: {x: 2, y: 8, z: 0}
 --- !u!1 &978349427
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,7 +3415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09da8b63e1caeb341ae92550f8ded5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   JumpForce: 130
   Speed: 5
 --- !u!1 &1498482525
