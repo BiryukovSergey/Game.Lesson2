@@ -2,15 +2,18 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 /*
-namespace Player.Controller         // <---------мусор
+namespace Player.Controller         
 {
-    public class Player : PlayerMove
+    public class Player : MonoBehaviour
     {
-       private Player _player = new Player();
-       private void Update()
+        private Spawn _spawn = new Spawn();
+
+        private void Start()
         {
-           _player.Move();
-           _player.Jump();
+            for (int i = 0; i < _spawn.transform.l; i++)
+            {
+                
+            }
         }
     }
 }*/
