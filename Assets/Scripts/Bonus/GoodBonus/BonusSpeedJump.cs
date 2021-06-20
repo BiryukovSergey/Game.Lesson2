@@ -56,7 +56,7 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
          {
            _player.Speed += constants.GoodBonusSpeed;
            _player.JumpForce += constants.GoodBonusJump;
-           Debug.Log("Ваша скорости и высота прыжка временно увеличенны!");
+           Debug.Log("Ваша скорость и высота прыжка временно увеличенны!");
          }
     }
     public IEnumerator inExit()

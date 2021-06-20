@@ -13,16 +13,27 @@ public class Spawn : MonoBehaviour
     
     private void Awake()
     {
-        for (int i = 0; i < _transformsSpawnsBadSphere.Length; ++i)
+       /* for (int i = 0; i < _transformsSpawnsBadSphere.Length; i++)
         {
-            Instantiate(_gameObjectBadDonus, transform.position, transform.rotation);
+            Instantiate(_gameObjectBadDonus, _transformsSpawnsBadSphere[i].transform.position, transform.rotation);
             transform.position = _transformsSpawnsBadSphere[i].transform.position;
         }
         
-        for (int i = 0; i < _transformsSpawnsGoodSphere.Length; ++i)
+        for (int i = 0; i < _transformsSpawnsGoodSphere.Length; i++)
         {
-            Instantiate(_gameObjectGoodDonus, transform.position, transform.rotation);
+            Instantiate(_gameObjectGoodDonus, _transformsSpawnsGoodSphere[i].transform.position, transform.rotation);
             transform.position = _transformsSpawnsGoodSphere[i].transform.position;
+        }*/
+       CreateBonus(_transformsSpawnsBadSphere,_gameObjectBadDonus); 
+       CreateBonus(_transformsSpawnsGoodSphere,_gameObjectGoodDonus);
+    }
+
+    void CreateBonus(Transform[] pos, GameObject boll)
+    {
+        for (int i = 0; i < pos.Length; i++)
+        {
+            Instantiate(boll, pos[i].transform.position, transform.rotation);
+            transform.position = pos[i].transform.position;
         }
     }
 }

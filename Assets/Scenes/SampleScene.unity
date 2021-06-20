@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 220802820}
   - component: {fileID: 220802819}
   m_Layer: 0
-  m_Name: Spawn'sSphere (2)
+  m_Name: Spawn'sSphere (2)Bad
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 318945828}
   - component: {fileID: 318945827}
   m_Layer: 0
-  m_Name: Spawn'sSphere
+  m_Name: Spawn'sSphereBad
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3067,7 +3067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1184925609}
   m_Layer: 0
-  m_Name: Spawn'sSphere
+  m_Name: Spawn'sSphereGood
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3567,7 +3567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349866828}
   m_Layer: 0
-  m_Name: Spawn'sSphere(1)
+  m_Name: Spawn'sSphere(1)Good
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3581,7 +3581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349866827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.6816373, y: -10.928881, z: -33.98843}
+  m_LocalPosition: {x: 4.11, y: -9.45, z: -33.395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 353046749}
@@ -4070,6 +4070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 77786536983959414, guid: 0abf28732e76fbe4c95362bcf5a97e02, type: 3}
+    - {fileID: 8890734800903964233, guid: 0abf28732e76fbe4c95362bcf5a97e02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0abf28732e76fbe4c95362bcf5a97e02, type: 3}
 --- !u!1 &1617028292
 GameObject:
@@ -4640,7 +4641,7 @@ GameObject:
   - component: {fileID: 1747788599}
   - component: {fileID: 1747788600}
   m_Layer: 0
-  m_Name: Spawn'sSphere (1)
+  m_Name: Spawn'sSphere (1)Bad
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
