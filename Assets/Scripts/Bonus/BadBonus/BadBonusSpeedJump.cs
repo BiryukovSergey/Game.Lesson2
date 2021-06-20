@@ -5,7 +5,7 @@ using UnityEngine;
 public class BadBonusSpeedJump : MonoBehaviour,IBadBonus
 {
     Constants constants = new Constants();
-    private PlayerMove _player;
+    internal PlayerMove _player;
 
     private void Awake()
     {

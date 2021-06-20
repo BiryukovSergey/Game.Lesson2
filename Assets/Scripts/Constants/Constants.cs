@@ -16,6 +16,8 @@ public class Constants
     public readonly float BadBonusSpeed = 1; //2
     public readonly float BadBonusJump = 5;
 
+    public readonly float TimeColldawn = 10.0f;
+
     public readonly string TagPlayer = "Player";
     public readonly string TagBonus = "Bonus";
     public readonly string TagBadBonus = "BadBonus";

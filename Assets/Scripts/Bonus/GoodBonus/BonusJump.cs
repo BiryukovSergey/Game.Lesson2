@@ -4,7 +4,7 @@ using UnityEngine;
 public class BonusJump : MonoBehaviour, IBonus
 {
     Constants constants = new Constants();
-    private PlayerMove _player;
+    internal PlayerMove _player;
 
     private void Awake()
     {

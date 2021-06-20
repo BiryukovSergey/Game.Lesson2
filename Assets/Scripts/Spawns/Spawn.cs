@@ -11,9 +11,6 @@ public class Spawn : MonoBehaviour
     [SerializeField] internal GameObject _gameObjectBadDonus;
     [SerializeField] internal GameObject _gameObjectGoodDonus;
     
-
-    
-
     private void Awake()
     {
         for (int i = 0; i < _transformsSpawnsBadSphere.Length; ++i)
