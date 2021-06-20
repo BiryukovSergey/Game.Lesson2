@@ -7,10 +7,7 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
 {
     Constants constants = new Constants();
     internal PlayerMove _player;
-    private float t = 5.0f;
-    private bool isWorker;
     
-
     internal void Awake()
     {
         _player = FindObjectOfType<PlayerMove>();
@@ -44,11 +41,6 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
         StartCoroutine(inExit());
     }
 
-
-    /// <summary>
-    /// Пробую через корутину
-    /// </summary>
-    /// <returns></returns>
     public IEnumerator inEnter()
     {
         yield return null;
