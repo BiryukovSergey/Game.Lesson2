@@ -8,16 +8,15 @@ public class FlyPanel : MonoBehaviour
 {
     public Transform pos;
     public float numeric;
-    public float numeric1;
+   
     private void Start()
     {
-        numeric = Random.Range(0.5f, 2.7f);
-        numeric1 = Random.Range(0.5f, 2.7f);
+        numeric = Random.Range(2.0f, 3.5f);
     }
 
     private void LateUpdate()
     {
-        pos.localPosition = new Vector3(transform.localPosition.x, Mathf.PingPong(Time.time, numeric),
-            transform.localPosition.z);
+        pos.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, numeric),
+            transform.position.z);
     }
 }
