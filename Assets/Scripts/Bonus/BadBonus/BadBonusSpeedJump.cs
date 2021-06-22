@@ -23,11 +23,13 @@ public class BadBonusSpeedJump : MonoBehaviour,IBadBonus
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag(constants.TagPlayer))
         StartCoroutine(inEnterBad());
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag(constants.TagPlayer))
         StartCoroutine(inExitBad());
     }
 

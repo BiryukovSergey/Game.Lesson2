@@ -8,10 +8,9 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
     Constants constants = new Constants();
     internal PlayerMove _player;
     
-    internal void Awake()
-    {
+    internal void Awake() => 
         _player = FindObjectOfType<PlayerMove>();
-    }
+    
     public void Bonus()
     {
         if (_player.Speed < constants.MaxSpeed && _player.JumpForce < constants.MaxJump)
@@ -22,23 +21,26 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
     }
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(inEnter()); 
+        if (other.gameObject.CompareTag(constants.TagPlayer))
+        {StartCoroutine(inEnter());}
         
         /* if (other.GetComponent<IBonus>() != null)
        {
            
        }*/
-        
-       /* if(other.GetComponent<IBadBonus>() != null)
-        {
-            other.GetComponent<IBadBonus>().BadBonus();
-            //StartCoroutine(im());                    <---------- мусор
-        }*/
+
+        /* if(other.GetComponent<IBadBonus>() != null)
+         {
+             other.GetComponent<IBadBonus>().BadBonus();
+            
+         }*/
     }
 
     private void OnTriggerExit(Collider other)
     {
-        StartCoroutine(inExit());
+        if (other.gameObject.CompareTag(constants.TagPlayer))
+        {StartCoroutine(inExit());}
+        
     }
 
     public IEnumerator inEnter()
