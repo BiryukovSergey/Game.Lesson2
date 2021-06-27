@@ -12,6 +12,7 @@ public class Constants
     public readonly float MinJump = 15;
     public readonly float MaxSpeed = 15;
     public readonly float MinSpeed = 1;
+    //public readonly float JumpForce = 15;
     
     public readonly float BadBonusSpeed = 1; //2
     public readonly float BadBonusJump = 5;
