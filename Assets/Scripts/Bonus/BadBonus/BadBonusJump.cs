@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BadBonusJump : MonoBehaviour, IBadBonus
 {
     Constants constants = new Constants();
-    private PlayerMove _player;
+    internal PlayerMove _player;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class BadBonusJump : MonoBehaviour, IBadBonus
     {
         if (_player.JumpForce > constants.MinJump)
            _player.JumpForce -= constants.BadBonusJump;
-        
     }
+
+   
 }

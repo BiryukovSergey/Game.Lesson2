@@ -4,7 +4,7 @@ using UnityEngine;
 public class BonusSpeed : MonoBehaviour, IBonus
 {
     Constants constants = new Constants();
-    private PlayerMove _player;
+    internal PlayerMove _player;
 
     private void Awake()
     {

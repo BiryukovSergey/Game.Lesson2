@@ -1,16 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusSpeedJump : MonoBehaviour,IBonus
+public class BonusSpeedJump : MonoBehaviour, IBonus
 {
+    internal delegate void BonusDelegat();
+    internal event BonusDelegat bonusDelegat;
+    
+    
     Constants constants = new Constants();
-    private PlayerMove _player;
+    internal PlayerMove _player;
 
-    private void Awake()
+    internal void Awake()
     {
         _player = FindObjectOfType<PlayerMove>();
+        bonusDelegat += delegate {  };
     }
+       
+    
     public void Bonus()
     {
         if (_player.Speed < constants.MaxSpeed && _player.JumpForce < constants.MaxJump)
@@ -19,5 +27,56 @@ public class BonusSpeedJump : MonoBehaviour,IBonus
             _player.JumpForce += constants.GoodBonusJump;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(constants.TagPlayer))
+        {StartCoroutine(inEnter());}
+        
+        /* if (other.GetComponent<IBonus>() != null)
+       {
+           
+       }*/
 
+        /* if(other.GetComponent<IBadBonus>() != null)
+         {
+             other.GetComponent<IBadBonus>().BadBonus();
+            
+         }*/
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(constants.TagPlayer))
+        {StartCoroutine(inExit());}
+        
+    }
+
+    public IEnumerator inEnter()
+    {
+        yield return null;
+        if (_player.Speed < constants.MaxSpeed && _player.JumpForce < constants.MaxJump)
+        {
+            bonusDelegat += Bonus;
+            bonusDelegat.Invoke();
+            
+           /*_player.Speed += constants.GoodBonusSpeed;
+           _player.JumpForce += constants.GoodBonusJump;*/
+           Debug.Log("Ваша скорость и высота прыжка временно увеличенны!");
+         }
+    }
+    public IEnumerator inExit()
+    {
+        yield return new WaitForSeconds(constants.TimeColldawn);
+        if (_player.Speed < constants.MaxSpeed && _player.JumpForce < constants.MaxJump)
+        {
+            bonusDelegat -= Bonus;
+            bonusDelegat.Invoke();
+           /* _player.Speed -= constants.GoodBonusSpeed;
+            _player.JumpForce -= constants.GoodBonusJump;*/
+            Debug.Log("Положительный бонус деактивирован!");
+        }
+    }
 }
+
+    
+
