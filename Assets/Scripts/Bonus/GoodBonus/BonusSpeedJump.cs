@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class BonusSpeedJump : MonoBehaviour, IBonus
 {
+    internal delegate void BonusDelegat();
+    internal event BonusDelegat bonusDelegat;
+    
+    
     Constants constants = new Constants();
     internal PlayerMove _player;
-    
-    internal void Awake() => 
+
+    internal void Awake()
+    {
         _player = FindObjectOfType<PlayerMove>();
+        bonusDelegat += delegate {  };
+    }
+       
     
     public void Bonus()
     {
@@ -47,9 +55,12 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
     {
         yield return null;
         if (_player.Speed < constants.MaxSpeed && _player.JumpForce < constants.MaxJump)
-         {
-           _player.Speed += constants.GoodBonusSpeed;
-           _player.JumpForce += constants.GoodBonusJump;
+        {
+            bonusDelegat += Bonus;
+            bonusDelegat.Invoke();
+            
+           /*_player.Speed += constants.GoodBonusSpeed;
+           _player.JumpForce += constants.GoodBonusJump;*/
            Debug.Log("Ваша скорость и высота прыжка временно увеличенны!");
          }
     }
@@ -58,8 +69,10 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
         yield return new WaitForSeconds(constants.TimeColldawn);
         if (_player.Speed < constants.MaxSpeed && _player.JumpForce < constants.MaxJump)
         {
-            _player.Speed -= constants.GoodBonusSpeed;
-            _player.JumpForce -= constants.GoodBonusJump;
+            bonusDelegat -= Bonus;
+            bonusDelegat.Invoke();
+           /* _player.Speed -= constants.GoodBonusSpeed;
+            _player.JumpForce -= constants.GoodBonusJump;*/
             Debug.Log("Положительный бонус деактивирован!");
         }
     }

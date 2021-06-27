@@ -82,9 +82,6 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Jump();
-
-        // Debug.Log("Speed =" + Speed);
-        // Debug.Log("Jump =" + JumpForce);
     }
 
     protected void Move()
