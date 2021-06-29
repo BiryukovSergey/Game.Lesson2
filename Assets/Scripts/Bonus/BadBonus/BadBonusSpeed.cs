@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
 using UnityEngine;
 
 public class BadBonusSpeed : MonoBehaviour, IBadBonus
@@ -16,4 +15,4 @@ public class BadBonusSpeed : MonoBehaviour, IBadBonus
         if (_player.Speed > constants.MinSpeed)
             _player.Speed -= constants.BadBonusSpeed;
     }
-}
+}*/

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿/*
 using UnityEngine;
 
 public class BadBonusJump : MonoBehaviour, IBadBonus
@@ -19,4 +17,4 @@ public class BadBonusJump : MonoBehaviour, IBadBonus
     }
 
    
-}
+}*/
