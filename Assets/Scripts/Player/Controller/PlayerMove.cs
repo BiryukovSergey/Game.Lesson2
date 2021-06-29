@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour
         _moveY = Input.GetAxis("Vertical");
         _moveX = Input.GetAxis("Horizontal");
         _move = new Vector3(-_moveY, 0, _moveX);
-        _rigidbody.AddForce(_move * Speed);
+        _rigidbody.AddForce(_move * Speed,ForceMode.Acceleration);
     }
 
     protected void Jump()
