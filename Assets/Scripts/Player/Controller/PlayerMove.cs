@@ -12,12 +12,11 @@ public class PlayerMove : MonoBehaviour
     private Vector3 _move;
     private Rigidbody _rigidbody;
     private bool _ground;
-
-    public float JumpForce;
-    public float Speed;
-
     private float _resetTime = 0.0f;
     private bool _isResetTime = true;
+    
+    public float JumpForce;
+    public float Speed;
 
     private void Awake()
     {
