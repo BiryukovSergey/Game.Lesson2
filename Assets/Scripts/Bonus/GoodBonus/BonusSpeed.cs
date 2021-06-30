@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using UnityEngine;
 
 public class BonusSpeed : MonoBehaviour, IBonus
@@ -15,4 +15,4 @@ public class BonusSpeed : MonoBehaviour, IBonus
         if (_player.JumpForce > constants.MaxJump)
             _player.Speed += constants.GoodBonusSpeed;
     }
-}
+}*/

@@ -12,12 +12,11 @@ public class PlayerMove : MonoBehaviour
     private Vector3 _move;
     private Rigidbody _rigidbody;
     private bool _ground;
-
+    private float _resetTime = 5.0f;
+    private bool _isResetTime = true;
+    
     public float JumpForce;
     public float Speed;
-
-    private float _resetTime = 0.0f;
-    private bool _isResetTime = true;
 
     private void Awake()
     {
@@ -32,7 +31,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        // ResetTime();
+        
     }
 
     private void FixedUpdate()
@@ -45,19 +44,21 @@ public class PlayerMove : MonoBehaviour
         _moveY = Input.GetAxis("Vertical");
         _moveX = Input.GetAxis("Horizontal");
         _move = new Vector3(-_moveY, 0, _moveX);
-        _rigidbody.AddForce(_move * Speed);
+        _rigidbody.AddForce(_move * Speed,ForceMode.Acceleration);
     }
 
     protected void Jump()
     {
         if (Input.GetAxis("Jump") > 0)
         {
-            // if (isResetTime) <------------ не работает (флаг )
+             if (_isResetTime)
+             { 
+                 if (_ground)
+                 {
+                     _rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Force);
+                 }
 
-            if (_ground)
-            {
-                _rigidbody.AddForce(Vector3.up * JumpForce);
-            }
+             }
         }
     }
 
@@ -79,17 +80,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Не работает
-    /// </summary>
-    /*public void ResetTime()
-    {
-        while (_resetTime != 5.0f)
-        {
-            _resetTime += Time.deltaTime;
-            _isResetTime = false;
-        }
-    }*/
+   
+
     ~PlayerMove()
     {
         moving += Move;
