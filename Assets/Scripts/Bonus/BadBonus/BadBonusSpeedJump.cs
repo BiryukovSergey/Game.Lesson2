@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class BadBonusSpeedJump : MonoBehaviour,IBadBonus
-{
-    internal delegate void BadBonusDelegat();
+{ internal delegate void BadBonusDelegat();
     internal event BadBonusDelegat badBonusDelegat;
         
     Constants constants = new Constants();

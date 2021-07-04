@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     internal delegate void Moving();
-
     internal event Moving moving;
 
     private float _moveX;
@@ -27,11 +26,6 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void FixedUpdate()
