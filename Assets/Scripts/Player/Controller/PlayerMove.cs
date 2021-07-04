@@ -43,16 +43,9 @@ public class PlayerMove : MonoBehaviour
 
     protected void Jump()
     {
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetAxis("Jump") > 0 && _isResetTime && _ground)
         {
-             if (_isResetTime)
-             { 
-                 if (_ground)
-                 {
-                     _rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Force);
-                 }
-
-             }
+            _rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Force);
         }
     }
 

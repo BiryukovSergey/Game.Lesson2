@@ -8,22 +8,23 @@ namespace Controller
     public class GameController : MonoBehaviour
     {
         public InteractiveObject[] _interactiveObject; 
+        
         private List<IFixedUpdate> _fixedUpdatesList;
         private List<IUpdate> _updatesList;
         private List<IStart> _startsList;
 
         public GameController()
         {
-            List<IFixedUpdate> _fixedUpdatesList = new List<IFixedUpdate>();
-            List<IUpdate> _updatesList = new List<IUpdate>();
-            List<IStart> _startsList = new List<IStart>();
-            
+            _fixedUpdatesList = new List<IFixedUpdate>();
+            _updatesList = new List<IUpdate>();
+            _startsList = new List<IStart>();
         }
         
         
         private void Awake()
         {
             _interactiveObject = Object.FindObjectsOfType<InteractiveObject>();
+            new Inicialization(this);
         }
 
         private void Update()

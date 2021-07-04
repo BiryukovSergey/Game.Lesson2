@@ -2,7 +2,9 @@
 {
     public class PlayerView
     {
-        internal delegate void PlayerMoving();
-        internal event PlayerMoving moving = () => {};
+        public delegate void PlayerMoving();
+        public PlayerMoving playerMoving;
+        
+        // internal event PlayerMoving moving = () => {};
     }
 }

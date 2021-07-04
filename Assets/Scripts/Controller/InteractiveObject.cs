@@ -1,6 +1,8 @@
-﻿namespace Controller
+﻿using UnityEngine;
+
+namespace Controller
 {
-    public class InteractiveObject
+    public class InteractiveObject : MonoBehaviour
     {
         
     }
