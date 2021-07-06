@@ -1,66 +1,87 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Interfeices;
 using UnityEngine;
 using Object = UnityEngine.Object; 
 
 namespace Controller
 {
-    public class GameController : MonoBehaviour
+    public class GameController : IInitialization, IExecute, ILateExecute,ICleanup
     {
-        public InteractiveObject[] _interactiveObject; 
-        
-        private List<IFixedUpdate> _fixedUpdatesList;
-        private List<IUpdate> _updatesList;
-        private List<IStart> _startsList;
+        private List<IExecute> _executeControllers;
+        private List<ILateExecute> _lateControllers;
+        private List<ICleanup> _cleanupControllers;
+        private List<IInitialization> _initializeController;
 
         public GameController()
         {
-            _fixedUpdatesList = new List<IFixedUpdate>();
-            _updatesList = new List<IUpdate>();
-            _startsList = new List<IStart>();
+            _executeControllers = new List<IExecute>();
+            _lateControllers = new List<ILateExecute>();
+            _cleanupControllers = new List<ICleanup>();
+            _initializeController = new List<IInitialization>();
         }
         
         
         private void Awake()
         {
-            _interactiveObject = Object.FindObjectsOfType<InteractiveObject>();
             new Inicialization(this);
         }
-
-        private void Update()
+        
+        internal GameController Add(IController controller)
         {
-            for (int i = 0; i < _interactiveObject.Length; i++)
+            if (controller is IInitialization inicializeController)
             {
-                var interactiveObject = _interactiveObject[i];
-                if (interactiveObject == null)
-                {
-                    continue;
-                }
+                _initializeController.Add(inicializeController);
+            }
 
-                if (interactiveObject is IBonus IBonus)
-                {
-                    IBonus.Bonus();
-                }
+            if (controller is IExecute executeController)
+            {
+                _executeControllers.Add(executeController);
+            }
 
-                if (interactiveObject is IBadBonus IBadBonus)
-                {
-                    IBadBonus.BadBonus();
-                }
+            if (controller is ILateExecute iLateExecuteController)
+            {
+                _lateControllers.Add(iLateExecuteController);
+            }
 
-                if (interactiveObject is IFixedUpdate IFixedUpdate)
-                {
-                    IFixedUpdate.FixedUpdate();
-                }
+            if (controller is ICleanup icleaCleanupController)
+            {
+                _cleanupControllers.Add(icleaCleanupController);
+            }
 
-                if (interactiveObject is IStart IStart)
-                {
-                    IStart.Start();
-                }
+            return this;
+        }
 
-                if (interactiveObject is IUpdate IUpdate)
-                {
-                    IUpdate.Update();
-                }
+
+        public void Initialization()
+        {
+            for (var i = 0; i < _initializeController.Count; ++i)
+            {
+                _initializeController[i].Initialization();
+            }
+        }
+
+        public void Execute()
+        {
+            for (var i = 0; i < _executeControllers.Count; ++i)
+            {
+                _executeControllers[i].Execute();
+            }
+        }
+
+        public void LateExecute()
+        {
+            for (var i = 0; i < _executeControllers.Count; ++i)
+            {
+                _lateControllers[i].LateExecute();
+            }
+        }
+
+        public void Cleanup()
+        {
+            for (var i = 0; i < _cleanupControllers.Count; ++i)
+            {
+                _cleanupControllers[i].Cleanup();
             }
         }
     }

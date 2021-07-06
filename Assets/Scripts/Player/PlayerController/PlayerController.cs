@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player.PlayerModel
 {
-    public class PlayerController : IFixedUpdate
+    public class PlayerController : IExecute
     {
         internal PlayerModel _playerModel;
         internal PlayerView _playerView;
