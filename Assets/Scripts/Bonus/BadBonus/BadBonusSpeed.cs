@@ -1,6 +1,6 @@
 ﻿using Controller;
 
-public class BadBonusSpeed : InteractiveObject, IBadBonus
+public class BadBonusSpeed : IBadBonus
 {
     Constants constants = new Constants();
     internal PlayerMove _player;

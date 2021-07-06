@@ -2,7 +2,7 @@
 using Controller;
 using UnityEngine;
 
-public class BadBonusJump : InteractiveObject, IBadBonus
+public class BadBonusJump : IBadBonus
 {
     Constants constants = new Constants();
     internal PlayerMove _player;

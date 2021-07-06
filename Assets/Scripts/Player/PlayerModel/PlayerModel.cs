@@ -1,4 +1,4 @@
-﻿namespace Player.PlayerModel
+﻿namespace Controller
 {
     internal class PlayerModel
     {

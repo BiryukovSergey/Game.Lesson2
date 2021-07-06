@@ -1,88 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using Interfeices;
+using System.Data.Common;
 using UnityEngine;
-using Object = UnityEngine.Object; 
 
 namespace Controller
 {
-    public class GameController : IInitialization, IExecute, ILateExecute,ICleanup
+    public class GameController : MonoBehaviour
     {
-        private List<IExecute> _executeControllers;
-        private List<ILateExecute> _lateControllers;
-        private List<ICleanup> _cleanupControllers;
-        private List<IInitialization> _initializeController;
+        [SerializeField] private Data _data;
+        private Controllers _controllers;
 
-        public GameController()
+        public GameController(Controllers controllers)
         {
-            _executeControllers = new List<IExecute>();
-            _lateControllers = new List<ILateExecute>();
-            _cleanupControllers = new List<ICleanup>();
-            _initializeController = new List<IInitialization>();
-        }
-        
-        
-        private void Awake()
-        {
-            new Inicialization(this);
-        }
-        
-        internal GameController Add(IController controller)
-        {
-            if (controller is IInitialization inicializeController)
-            {
-                _initializeController.Add(inicializeController);
-            }
-
-            if (controller is IExecute executeController)
-            {
-                _executeControllers.Add(executeController);
-            }
-
-            if (controller is ILateExecute iLateExecuteController)
-            {
-                _lateControllers.Add(iLateExecuteController);
-            }
-
-            if (controller is ICleanup icleaCleanupController)
-            {
-                _cleanupControllers.Add(icleaCleanupController);
-            }
-
-            return this;
         }
 
-
-        public void Initialization()
+        private void Start()
         {
-            for (var i = 0; i < _initializeController.Count; ++i)
-            {
-                _initializeController[i].Initialization();
-            }
+            _controllers = new Controllers();
+          //  new GameInitialization(_controllers, _data); <------------- дописать класс
+            _controllers.Initialization();
         }
 
-        public void Execute()
+        private void Update()
         {
-            for (var i = 0; i < _executeControllers.Count; ++i)
-            {
-                _executeControllers[i].Execute();
-            }
+            _controllers.Execute();
         }
 
-        public void LateExecute()
+        private void LateUpdate()
         {
-            for (var i = 0; i < _executeControllers.Count; ++i)
-            {
-                _lateControllers[i].LateExecute();
-            }
+            _controllers.LateExecute();
         }
 
-        public void Cleanup()
+        private void OnDestroy()
         {
-            for (var i = 0; i < _cleanupControllers.Count; ++i)
-            {
-                _cleanupControllers[i].Cleanup();
-            }
+            _controllers.Cleanup();
         }
     }
 }

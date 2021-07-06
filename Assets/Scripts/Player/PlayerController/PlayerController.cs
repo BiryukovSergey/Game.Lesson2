@@ -1,9 +1,8 @@
-﻿using DefaultNamespace.Player.PlayerView;
-using Interfeices;
+﻿using Interfeices;
 using UnityEngine;
 
 
-namespace Player.PlayerModel
+namespace Controller
 {
     public class PlayerController : IExecute
     {
@@ -40,6 +39,10 @@ namespace Player.PlayerModel
         {
            _playerView.playerMoving.Invoke();
         }
-        
+
+        public void Execute()
+        {
+            
+        }
     }
 }
