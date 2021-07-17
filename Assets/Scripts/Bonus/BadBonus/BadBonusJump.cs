@@ -1,14 +1,15 @@
-﻿/*
+﻿
+using Controller;
 using UnityEngine;
 
-public class BadBonusJump : MonoBehaviour, IBadBonus
+public class BadBonusJump : IBadBonus
 {
     Constants constants = new Constants();
     internal PlayerMove _player;
 
     private void Awake()
     {
-        _player = FindObjectOfType<PlayerMove>();
+       // _player = FindObjectOfType<PlayerMove>();
     }
     public void BadBonus()
     {
@@ -17,4 +18,4 @@ public class BadBonusJump : MonoBehaviour, IBadBonus
     }
 
    
-}*/
+}

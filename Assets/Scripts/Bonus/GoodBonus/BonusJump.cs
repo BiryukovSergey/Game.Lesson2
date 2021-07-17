@@ -1,7 +1,7 @@
 ﻿/*
 using UnityEngine;
 
-public class BonusJump : MonoBehaviour, IBonus
+public class BonusJump : IBonus
 {
     Constants constants = new Constants();
     internal PlayerMove _player;

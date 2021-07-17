@@ -1,10 +1,11 @@
 ﻿using System;
+using Bonus;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour,IBonusUpdate
 {
     internal delegate void Moving();
-
     internal event Moving moving;
 
     private float _moveX;
@@ -17,26 +18,20 @@ public class PlayerMove : MonoBehaviour
     
     public float JumpForce;
     public float Speed;
-
+    
     private void Awake()
     {
-        moving += Move;
-        moving += Jump;
+       moving += Move;
+       moving += Jump;
     }
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+       _rigidbody = GetComponent<Rigidbody>();
     }
-
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-        moving?.Invoke();
+       moving?.Invoke();
     }
 
     protected void Move()
@@ -49,16 +44,9 @@ public class PlayerMove : MonoBehaviour
 
     protected void Jump()
     {
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetAxis("Jump") > 0 && _isResetTime && _ground)
         {
-             if (_isResetTime)
-             { 
-                 if (_ground)
-                 {
-                     _rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Force);
-                 }
-
-             }
+            _rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Force);
         }
     }
 
@@ -80,11 +68,18 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-   
-
     ~PlayerMove()
     {
         moving += Move;
         moving += Jump;
     }
+
+    public void UpdateBonus()
+    {
+        
+    }
+}
+
+public interface IBonusUpdate
+{
 }
