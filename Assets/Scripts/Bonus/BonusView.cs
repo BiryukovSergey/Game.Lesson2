@@ -7,21 +7,25 @@ namespace Bonus
     public class BonusView : MonoBehaviour
     {
         [SerializeField]
-        private Transform[] _goodBonusPosition;
-        [SerializeField]
         private Transform[] _badBonusPosition;
 
-        private BonusController _bonusController;
+        internal BonusController _bonusController;
+        [SerializeField]
+        internal BonusSO So;
+        internal BonusBad Bad;
+
         private void Awake()
         {
-            _bonusController = new BonusController();
-           for (int i = 0; i < _badBonusPosition.Length; i++)
+            //So = new BonusSO();
+            Bad = new BonusBad(So);
+            if (Bad is IBonuses bonus)
             {
-                if (_badBonusPosition[i] != null)
+                for (int i = 0; i < _badBonusPosition.Length; ++i)
                 {
-                    //_badBonusPosition[i].position = вот здесь не могу понять в чем проблема я не могу написать ;
-                    //_badBonusPosition[i] = _bonusController._bonusBads[i].transform;
+                    Bad.Create<BonusBad>(So, _badBonusPosition[i].transform);
+                    Debug.Log(Bad.ToString());
                 }
+                
             }
         }
     }

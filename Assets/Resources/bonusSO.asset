@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0839ea4bb014420785f303441768bdfe, type: 3}
-  m_Name: bonusSO
+  m_Name: BonusSO
   m_EditorClassIdentifier: 
-  JumpForce: 
-  Speed: 
+  _pathOfBonusGood: Assets/Resources/BonusSO.asset
+  _pathOfBonusBad: 
+  JumpForce: 10
+  Speed: 2

@@ -5,7 +5,7 @@ namespace Bonus
 {
     public class BonusModel
     {
-        protected float JumpForce;
-        protected float Speed;
+        internal float JumpForce;
+        internal float Speed;
     }
 }

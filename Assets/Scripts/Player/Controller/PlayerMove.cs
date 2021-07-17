@@ -21,20 +21,17 @@ public class PlayerMove : MonoBehaviour,IBonusUpdate
     
     private void Awake()
     {
-       
-        moving += Move;
-        moving += Jump;
-       
+       moving += Move;
+       moving += Jump;
     }
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        
+       _rigidbody = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
-        moving?.Invoke();
+       moving?.Invoke();
     }
 
     protected void Move()
@@ -81,4 +78,8 @@ public class PlayerMove : MonoBehaviour,IBonusUpdate
     {
         
     }
+}
+
+public interface IBonusUpdate
+{
 }

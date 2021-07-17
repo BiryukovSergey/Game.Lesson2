@@ -3,29 +3,15 @@ using UnityEngine;
 
 namespace Bonus
 {
-    [CreateAssetMenu (menuName = "Bonus/bonus",fileName = "BonusSO")]
+    [CreateAssetMenu (menuName = "Bonus/bonus/bonus",fileName = "BonusSO")]
     public class BonusSO : ScriptableObject
     {
         //TODO разобраться и настроить путь для SO
         
-        //[SerializeField] private string _pathOfBonusGood;
-       // [SerializeField] private string _pathOfBonusBad;
+        [SerializeField] private string _pathOfBonusGood;
+        [SerializeField] private string _pathOfBonusBad;
         
-        internal float JumpForce;
-        internal float Speed;
-        public float jumpForce
-        {
-            get
-            {
-                return JumpForce;
-            }
-        }
-        public float speed
-        {
-            get
-            {
-                return Speed;
-            }
-        }
+        public float JumpForce;
+        public float Speed;
     }
 }

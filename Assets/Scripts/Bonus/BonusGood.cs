@@ -7,11 +7,12 @@ namespace Bonus
     {
         protected float JumpForce;
         protected float Speed;
+        private BonusModel _bonusModel; 
 
         public BonusGood(BonusSO bonus)
         {
-            JumpForce = bonus.jumpForce;
-            Speed = bonus.speed;
+            _bonusModel.JumpForce = bonus.JumpForce;
+            _bonusModel.Speed = bonus.Speed;
         }
     }
 }
