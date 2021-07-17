@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Controller
 {
-    public class PlayerController : IExecute
+    public class PlayerController
     {
         internal PlayerModel _playerModel;
         internal PlayerView _playerView;
@@ -40,9 +40,6 @@ namespace Controller
            _playerView.playerMoving.Invoke();
         }
 
-        public void Execute()
-        {
-            
-        }
+       
     }
 }

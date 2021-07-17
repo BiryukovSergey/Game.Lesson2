@@ -1,7 +1,9 @@
 ﻿using System;
+using Bonus;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour,IBonusUpdate
 {
     internal delegate void Moving();
     internal event Moving moving;
@@ -16,18 +18,20 @@ public class PlayerMove : MonoBehaviour
     
     public float JumpForce;
     public float Speed;
-
+    
     private void Awake()
     {
+       
         moving += Move;
         moving += Jump;
+       
     }
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        
     }
-
     private void FixedUpdate()
     {
         moving?.Invoke();
@@ -67,11 +71,14 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-   
-
     ~PlayerMove()
     {
         moving += Move;
         moving += Jump;
+    }
+
+    public void UpdateBonus()
+    {
+        
     }
 }
