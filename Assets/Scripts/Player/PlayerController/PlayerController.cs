@@ -40,6 +40,11 @@ namespace Controller
            _playerView.playerMoving.Invoke();
         }
 
+        ~PlayerController()
+        {
+            
+        }
+
        
     }
 }

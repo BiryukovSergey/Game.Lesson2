@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] protected Transform[] _transformsSpawnsBadSphere;
+   /* [SerializeField] protected Transform[] _transformsSpawnsBadSphere;
     [SerializeField] protected Transform[] _transformsSpawnsGoodSphere;
     [SerializeField] internal GameObject _gameObjectBadDonus;
     [SerializeField] internal GameObject _gameObjectGoodDonus;
@@ -24,7 +24,7 @@ public class Spawn : MonoBehaviour
             Instantiate(_gameObjectGoodDonus, _transformsSpawnsGoodSphere[i].transform.position, transform.rotation);
             transform.position = _transformsSpawnsGoodSphere[i].transform.position;
         }*/
-       CreateBonus(_transformsSpawnsBadSphere,_gameObjectBadDonus); 
+   /*    CreateBonus(_transformsSpawnsBadSphere,_gameObjectBadDonus); 
        CreateBonus(_transformsSpawnsGoodSphere,_gameObjectGoodDonus);
     }
 
@@ -35,5 +35,6 @@ public class Spawn : MonoBehaviour
             Instantiate(boll, pos[i].transform.position, transform.rotation);
             transform.position = pos[i].transform.position;
         }
-    }
-}
+    }*/
+
+} 

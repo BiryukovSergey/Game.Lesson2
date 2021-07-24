@@ -3,10 +3,9 @@ using Bonus;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class PlayerMove : MonoBehaviour,IBonusUpdate
-{
-    internal delegate void Moving();
-    internal event Moving moving;
+public class PlayerMove : MonoBehaviour
+{ 
+    internal event Action moving = () => {};
 
     private float _moveX;
     private float _moveY;
@@ -73,13 +72,4 @@ public class PlayerMove : MonoBehaviour,IBonusUpdate
         moving += Move;
         moving += Jump;
     }
-
-    public void UpdateBonus()
-    {
-        
-    }
-}
-
-public interface IBonusUpdate
-{
 }
