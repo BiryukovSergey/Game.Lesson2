@@ -1,19 +1,25 @@
-﻿public class Constants
+﻿public static class Constants
  {
-    public readonly float GoodBonusSpeed = 1; //2
-    public readonly float GoodBonusJump = 5;
-    public readonly float MaxJump = 150;
-    public readonly float MinJump = 15;
-    public readonly float MaxSpeed = 15;
-    public readonly float MinSpeed = 1;
-        
-    public readonly float BadBonusSpeed = 1; //2
-    public readonly float BadBonusJump = 5;
+    /// <summary>
+    /// Бонусы которые прибавляюся/уменьшаются
+    /// </summary>
+    public static readonly float MaxJump = 150;
+    public static readonly float MinJump = 15;
+    public static readonly float MaxSpeed = 15;
+    public static readonly float MinSpeed = 2;
+      
+    /// <summary>
+    /// Значения на которые увеличиваются/уменьшаюстся бонусы
+    /// </summary>
+    public static readonly float GoodBonusSpeed = 1; 
+    public static readonly float GoodBonusJump = 5;
+    public static readonly float BadBonusSpeed = 1; 
+    public static readonly float BadBonusJump = 5;
 
-    public readonly float TimeColldawn = 10.0f;
+    public static readonly float TimeColldawn = 10.0f;
 
-    public readonly string TagPlayer = "Player";
-    public readonly string TagBonus = "Bonus";
-    public readonly string TagBadBonus = "BadBonus";
+    public static readonly string TagPlayer = "Player";
+    //public static readonly string TagBonus = "Bonus";
+    //public static readonly string TagBadBonus = "BadBonus";
  }
 

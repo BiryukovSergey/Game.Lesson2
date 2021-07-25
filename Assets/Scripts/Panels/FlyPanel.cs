@@ -14,7 +14,7 @@ public class FlyPanel : MonoBehaviour
         numeric = Random.Range(2.0f, 3.5f);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         pos.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, numeric),
             transform.position.z);

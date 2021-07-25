@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+/*
 namespace Controller
 {
     [CreateAssetMenu(fileName = "UnitySetting", menuName = "Data/Unit/Unitisettings")]
@@ -16,4 +16,4 @@ namespace Controller
          _vector3 = new Vector3( 0,0,0);
      }
     }
-}
+}*/
