@@ -25,7 +25,6 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
     {
         if (other.gameObject.CompareTag(Constants.TagPlayer))
         {StartCoroutine(inEnter());}
-        bonusDelegat.Invoke();
        
     }
 
@@ -42,7 +41,7 @@ public class BonusSpeedJump : MonoBehaviour, IBonus
         if (_player.Speed < Constants.MaxSpeed && _player.JumpForce < Constants.MaxJump)
         {
             bonusDelegat += Bonus;
-            //bonusDelegat.Invoke();
+            bonusDelegat.Invoke();
             Debug.Log("Ваша скорость и высота прыжка временно увеличенны!");
          }
     }

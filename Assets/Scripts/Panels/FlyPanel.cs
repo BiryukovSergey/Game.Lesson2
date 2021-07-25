@@ -11,7 +11,7 @@ public class FlyPanel : MonoBehaviour
    
     private void Start()
     {
-        numeric = Random.Range(2.0f, 3.5f);
+        numeric = Random.Range(2.0f, 4.0f);
     }
 
     private void Update()
