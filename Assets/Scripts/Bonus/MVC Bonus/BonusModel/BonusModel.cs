@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bonus
 {
-    public class BonusModel
+    public struct BonusModel
     {
         internal float jumpForce;
         internal float speed;

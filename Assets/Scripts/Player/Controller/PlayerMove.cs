@@ -2,6 +2,7 @@
 using Bonus;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public sealed class PlayerMove : MonoBehaviour
 { 
@@ -16,16 +17,18 @@ public sealed class PlayerMove : MonoBehaviour
     
     public float JumpForce;
     public float Speed;
+    public Text Text;
     
     private void Awake()
     {
        moving += Move;
-      // moving += Jump;
        _rigidbody = GetComponent<Rigidbody>();
+      
     }
 
     private void Update()
     {
+        Text.text = $"Скорость шара:  {Speed.ToString()}" + $"\n Сила прыжка: {JumpForce.ToString()}";
         moving += Jump;
     }
 

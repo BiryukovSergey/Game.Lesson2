@@ -19,7 +19,5 @@
     public static readonly float TimeColldawn = 10.0f;
 
     public static readonly string TagPlayer = "Player";
-    //public static readonly string TagBonus = "Bonus";
-    //public static readonly string TagBadBonus = "BadBonus";
  }
 
