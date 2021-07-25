@@ -1,5 +1,5 @@
 ﻿interface IBadBonus
     {
-    void BadBonus();
+        void BadBonus();
     }
 

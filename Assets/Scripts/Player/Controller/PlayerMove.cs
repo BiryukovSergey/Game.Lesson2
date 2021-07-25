@@ -3,7 +3,7 @@ using Bonus;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class PlayerMove : MonoBehaviour
+public sealed class PlayerMove : MonoBehaviour
 { 
     internal event Action moving = () => {};
 
@@ -12,8 +12,9 @@ public class PlayerMove : MonoBehaviour
     private Vector3 _move;
     private Rigidbody _rigidbody;
     private bool _ground;
-    private float _resetTime = 5.0f;
+   // private float _resetTime = 5.0f;
     private bool _isResetTime = true;
+    private bool inAir;
     
     public float JumpForce;
     public float Speed;
@@ -21,13 +22,15 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
        moving += Move;
-       moving += Jump;
-    }
-
-    private void Start()
-    {
+      // moving += Jump;
        _rigidbody = GetComponent<Rigidbody>();
     }
+
+    private void Update()
+    {
+        moving += Jump;
+    }
+
     private void FixedUpdate()
     {
        moving?.Invoke();
@@ -43,9 +46,15 @@ public class PlayerMove : MonoBehaviour
 
     protected void Jump()
     {
-        if (Input.GetAxis("Jump") > 0 && _isResetTime && _ground)
+        /*if (Input.GetAxis("Jump") > 0 && _isResetTime && _ground)
         {
             _rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Force);
+        }*/
+        
+        if (Input.GetKey(KeyCode.Space) && !inAir)
+        {
+            inAir = true;
+            _rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Force);
         }
     }
 
@@ -63,7 +72,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Ground"))
         {
-            _ground = value;
+            //_ground = value;
+            inAir = false;
         }
     }
 

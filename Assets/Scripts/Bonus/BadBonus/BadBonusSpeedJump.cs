@@ -1,63 +1,62 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class BadBonusSpeedJump : MonoBehaviour,IBadBonus
-{ internal delegate void BadBonusDelegat();
-    internal event BadBonusDelegat badBonusDelegat;
+{ 
+   
+    internal event Action badBonusDelegat = () => {};
         
-    Constants constants = new Constants();
-    internal PlayerMove _player;
+   internal PlayerMove _player;
 
     private void Awake()
     {
         _player = FindObjectOfType<PlayerMove>();
-        badBonusDelegat += delegate {  };
     }
     public void BadBonus()
     {
-        if(_player.Speed > constants.MinSpeed && _player.JumpForce > constants.MinJump)
+        if(_player.Speed > Constants.MinSpeed && _player.JumpForce > Constants.MinJump)
         {
-            _player.Speed -= constants.BadBonusSpeed;
-            _player.JumpForce -= constants.BadBonusJump;
+            _player.Speed -= Constants.BadBonusSpeed;
+            _player.JumpForce -= Constants.BadBonusJump;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(constants.TagPlayer))
+        if (other.gameObject.CompareTag(Constants.TagPlayer))
         StartCoroutine(inEnterBad());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(constants.TagPlayer))
+        if (other.gameObject.CompareTag(Constants.TagPlayer))
         StartCoroutine(inExitBad());
     }
 
     public IEnumerator inEnterBad()
     {
         yield return null;
-        if(_player.Speed > constants.MinSpeed && _player.JumpForce > constants.MinJump)
+        if(_player.Speed > Constants.MinSpeed && _player.JumpForce > Constants.MinJump)
         {
             badBonusDelegat += BadBonus;
             badBonusDelegat.Invoke();
-            
-            /*_player.Speed -= constants.BadBonusSpeed;
-            _player.JumpForce -= constants.BadBonusJump;*/
             Debug.Log("Ваша скорость и высота прыжка временно уменьшины!");
         }
     }
     public IEnumerator inExitBad()
     {
-        yield return new WaitForSeconds(constants.TimeColldawn);
-        if(_player.Speed > constants.MinSpeed && _player.JumpForce > constants.MinJump)
+        yield return new WaitForSeconds(Constants.TimeColldawn);
+        if(_player.Speed > Constants.MinSpeed && _player.JumpForce > Constants.MinJump)
         {
             badBonusDelegat -= BadBonus;
-            
-            /*_player.Speed += constants.BadBonusSpeed;
-            _player.JumpForce += constants.BadBonusJump;*/
             Debug.Log("Отрицательный бонус деактивирован!");
         }
+    }
+
+    ~BadBonusSpeedJump()
+    {
+        badBonusDelegat -= BadBonus;
     }
 }
 
