@@ -11,7 +11,7 @@ public class RevercePanel : MonoBehaviour
         reverce = Random.Range(1.0f,8.0f);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         pos.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y,
              Mathf.PingPong(Time.time*2, reverce));

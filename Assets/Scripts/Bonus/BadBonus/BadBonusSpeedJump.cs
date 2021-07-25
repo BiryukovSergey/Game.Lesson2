@@ -26,6 +26,7 @@ public class BadBonusSpeedJump : MonoBehaviour,IBadBonus
     {
         if (other.gameObject.CompareTag(Constants.TagPlayer))
         StartCoroutine(inEnterBad());
+        badBonusDelegat.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
@@ -40,7 +41,7 @@ public class BadBonusSpeedJump : MonoBehaviour,IBadBonus
         if(_player.Speed > Constants.MinSpeed && _player.JumpForce > Constants.MinJump)
         {
             badBonusDelegat += BadBonus;
-            badBonusDelegat.Invoke();
+           // badBonusDelegat.Invoke();
             Debug.Log("Ваша скорость и высота прыжка временно уменьшины!");
         }
     }

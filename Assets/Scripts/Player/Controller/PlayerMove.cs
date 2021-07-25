@@ -12,8 +12,6 @@ public sealed class PlayerMove : MonoBehaviour
     private Vector3 _move;
     private Rigidbody _rigidbody;
     private bool _ground;
-   // private float _resetTime = 5.0f;
-    private bool _isResetTime = true;
     private bool inAir;
     
     public float JumpForce;
