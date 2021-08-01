@@ -1,6 +1,6 @@
 ﻿namespace Controller
 {
-    internal class PlayerModel
+    public class PlayerModel
     {
         internal float JumpForce;
         internal float Speed;
