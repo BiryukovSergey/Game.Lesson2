@@ -2,12 +2,12 @@
 
 
 namespace Controller
-{
+{/*
     public class PlayerController
     {
         internal PlayerModel _playerModel;
         internal PlayerView _playerView;
-
+        
         internal Vector3 move;
         internal Rigidbody rigidbody;
 
@@ -15,16 +15,19 @@ namespace Controller
         internal float resetTime;
         internal bool isResetTime;
 
-        public PlayerController()
+        public PlayerController(Vector3 move,PlayerView playerView, PlayerModel playerModel)
         {
-          _playerView.playerMoving += Move;
-          _playerView.playerMoving += Jump;
+            _playerView = playerView;
+            _playerModel = playerModel;
+            this.move = move;
         }
 
         protected void Move()
         {
             move = new Vector3(-Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
             rigidbody.AddForce(move * _playerModel.Speed, ForceMode.Acceleration);
+            
+            
         }
         protected void Jump()
         {
@@ -45,5 +48,5 @@ namespace Controller
         }
 
        
-    }
+    }*/
 }

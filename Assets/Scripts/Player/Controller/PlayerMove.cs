@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public sealed class PlayerMove : MonoBehaviour
+namespace Controller
+{
+    public class PlayerMove : MonoBehaviour
 { 
     internal event Action moving = () => {};
-
+    
     private float _moveX;
     private float _moveY;
     private Vector3 _move;
@@ -21,23 +23,21 @@ public sealed class PlayerMove : MonoBehaviour
     
     private void Awake()
     {
-       moving += Move;
-       _rigidbody = GetComponent<Rigidbody>();
-      
+        _rigidbody = GetComponent<Rigidbody>();
+        moving += Move;
+        moving += Jump;
     }
 
     private void Update()
-    {
-        Text.text = $"Скорость шара:  {Speed.ToString()}" + $"\n Сила прыжка: {JumpForce.ToString()}";
-        moving += Jump;
+    { Text.text = $"Скорость шара:  {Speed.ToString()}" + $"\n Сила прыжка: {JumpForce.ToString()}";
     }
 
     private void FixedUpdate()
     {
-       moving?.Invoke();
+        moving?.Invoke();
     }
 
-    protected void Move()
+    internal void Move()
     {
         _moveY = Input.GetAxis("Vertical");
         _moveX = Input.GetAxis("Horizontal");
@@ -83,4 +83,6 @@ public sealed class PlayerMove : MonoBehaviour
         moving += Move;
         moving += Jump;
     }
+}
+
 }
