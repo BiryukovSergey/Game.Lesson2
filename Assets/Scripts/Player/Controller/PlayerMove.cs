@@ -8,6 +8,10 @@ namespace Controller
 {
     public class PlayerMove : MonoBehaviour
 { 
+    private readonly SaveDataRepository _saveDataRepository;
+    
+    private readonly KeyCode _savePlayer = KeyCode.C;
+    private readonly KeyCode _loadPlayer = KeyCode.V;
     internal event Action moving = () => {};
     
     private float _moveX;
@@ -20,16 +24,21 @@ namespace Controller
     public float JumpForce;
     public float Speed;
     public Text Text;
+
+    private PlayerMove _playerMove;
     
     private void Awake()
     {
+        _playerMove = GetComponent<PlayerMove>();
         _rigidbody = GetComponent<Rigidbody>();
         moving += Move;
         moving += Jump;
     }
 
     private void Update()
-    { Text.text = $"Скорость шара:  {Speed.ToString()}" + $"\n Сила прыжка: {JumpForce.ToString()}";
+    { 
+        //Move();
+        Text.text = $"Скорость шара:  {Speed.ToString()}" + $"\n Сила прыжка: {JumpForce.ToString()}";
     }
 
     private void FixedUpdate()

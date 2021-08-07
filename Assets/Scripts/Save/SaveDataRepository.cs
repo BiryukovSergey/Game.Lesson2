@@ -11,21 +11,12 @@ namespace Controller
         private const string _folderName = "dataSave";
         private const string _fileName = "data.bat";
         private readonly string _path;
-        public readonly PlayerMove _player;
 
 
 
         public SaveDataRepository()
         {
-            if (Application.platform == RuntimePlatform.WebGLPlayer)
-            {
-                _data = new StreamData();
-            }
-            else
-            {
-                _data = new JsonData<SaveData>();
-            }
-
+            _data = new JsonData<SaveData>();
             _path = Path.Combine(Application.dataPath, _folderName);
         }
 
@@ -52,7 +43,7 @@ namespace Controller
             player.transform.position = newPlayer.Position;
             player.gameObject.SetActive(newPlayer.IsEnabled);
             
-            Debug.Log(newPlayer);
+            Debug.Log(player.transform.position);
         }
 
         
