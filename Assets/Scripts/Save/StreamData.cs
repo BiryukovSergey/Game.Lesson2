@@ -20,7 +20,6 @@ namespace Controller
         public SaveData Load(string path = null)
         {
             bool test;
-            float testInt;
             var result = new SaveData();
             using (var sr = new StreamReader(path))
             {

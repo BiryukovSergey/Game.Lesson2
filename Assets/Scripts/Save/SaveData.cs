@@ -9,13 +9,11 @@ namespace Controller
         public string Name;
         public Vector3Serializable Position;
         public bool IsEnabled;
-        
-
         public override string ToString() => $"Name {Name}  Position {Position} IsVisible {IsEnabled}";
         
     }
     
-    [Serializable]
+   [Serializable]
    public struct Vector3Serializable
    {
        public float X;
@@ -31,7 +29,7 @@ namespace Controller
 
        public static implicit operator Vector3(Vector3Serializable value)
        {
-           return new Vector3(value.X, value.X, value.X);
+           return new Vector3(value.X, value.Y, value.Z);
        }
 
        public static implicit operator Vector3Serializable(Vector3 value)
