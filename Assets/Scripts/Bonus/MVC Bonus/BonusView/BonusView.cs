@@ -10,7 +10,6 @@ namespace Bonus
         [SerializeField] internal Transform[] goodBonusPosition;
         [SerializeField] internal BonusSO so;
         
-        internal BonusController bonusController;
         internal BonusBad bad;
         internal BonusGood bonusGood;
 

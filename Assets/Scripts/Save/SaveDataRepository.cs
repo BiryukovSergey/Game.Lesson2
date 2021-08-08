@@ -7,13 +7,11 @@ namespace Controller
     public class SaveDataRepository
     {
         private readonly IData<SaveData> _data;
-
+        private readonly string _path;
+        
         private const string _folderName = "dataSave";
         private const string _fileName = "data.bat";
-        private readonly string _path;
-
-
-
+        
         public SaveDataRepository()
         {
             _data = new JsonData<SaveData>();
@@ -26,7 +24,6 @@ namespace Controller
             {
                 Directory.CreateDirectory(_path);
             }
-
             var savePlayer = new SaveData()
             {
                 Position = player.transform.position,
