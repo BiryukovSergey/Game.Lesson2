@@ -36,7 +36,6 @@ namespace Controller
        {
            return new Vector3Serializable(value.x, value.y, value.z);
        }
-
        public override string ToString() => $"(X = {X} Y = {Y} Z = {Z}";
    }
 }

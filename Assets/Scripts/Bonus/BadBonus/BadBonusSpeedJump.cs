@@ -46,7 +46,7 @@ namespace Controller
             {
                 badBonusDelegat += BadBonus;
                 badBonusDelegat.Invoke();
-                Debug.Log("Ваша скорость и высота прыжка временно уменьшины!");
+                Debug.Log("Ваша скорость и высота прыжка уменьшины!");
             }
         }
 

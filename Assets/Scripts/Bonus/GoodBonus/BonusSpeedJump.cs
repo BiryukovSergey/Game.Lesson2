@@ -50,7 +50,7 @@ namespace Controller
             {
                 bonusDelegat += Bonus;
                 bonusDelegat.Invoke();
-                Debug.Log("Ваша скорость и высота прыжка временно увеличенны!");
+                Debug.Log("Ваша скорость и высота прыжка увеличенны!");
             }
         }
 
