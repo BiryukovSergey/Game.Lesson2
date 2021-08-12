@@ -15,7 +15,8 @@ namespace Controller
 
         private void Awake()
         {
-            _player = FindObjectOfType<PlayerMove>();
+            _player = new PlayerMove();
+            //_player = FindObjectOfType<PlayerMove>();
         }
 
         public void BadBonus()

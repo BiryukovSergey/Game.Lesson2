@@ -5,13 +5,13 @@ namespace Controller
 {
     public class SaveController : MonoBehaviour
     {
-        private PlayerMove _playerMove;
+        private PlayerView _playerMove;
         private SaveDataRepository _saveDataRepository;
 
         private void Awake()
         
         {
-            _playerMove = FindObjectOfType<PlayerMove>();
+            _playerMove = FindObjectOfType<PlayerView>();
             _saveDataRepository = new SaveDataRepository();
         }
 

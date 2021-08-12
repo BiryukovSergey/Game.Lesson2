@@ -7,7 +7,7 @@
 
         public PlayerModel()
         {
-          JumpForce = 130;
+          JumpForce = 150;
           Speed = 5;
         }
     }

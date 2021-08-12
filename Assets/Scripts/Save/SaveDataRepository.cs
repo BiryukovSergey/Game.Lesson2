@@ -18,7 +18,7 @@ namespace Controller
             _path = Path.Combine(Application.dataPath, _folderName);
         }
 
-        public void Save(PlayerMove player)
+        public void Save(PlayerView player)
         {
             if (!Directory.Exists(Path.Combine(_path)))
             {
@@ -32,7 +32,7 @@ namespace Controller
             _data.Save(savePlayer,Path.Combine(_path,_fileName));
         }
 
-        public void Load(PlayerMove player)
+        public void Load(PlayerView player)
         {
             var file = Path.Combine(_path, _fileName);
             if(!File.Exists(file)) return;
