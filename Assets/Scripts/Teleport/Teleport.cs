@@ -11,6 +11,7 @@ public class Teleport : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.position = _pos.transform.position;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }

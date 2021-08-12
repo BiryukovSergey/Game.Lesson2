@@ -13,7 +13,7 @@ namespace Controller
 
         internal void Awake()
         {
-            _player = FindObjectOfType<PlayerMove>();
+            _player = new PlayerMove();
         }
 
         public void Bonus()
