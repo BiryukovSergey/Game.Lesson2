@@ -14,10 +14,6 @@ public class CameraOffsetView : MonoBehaviour
         _camera = Camera.main;
         _cameraOffssetData = new CameraOffssetData(_player, _offset,_camera);
         _controller = new CameraOffsetController(_cameraOffssetData);
-    }
-
-    private void Update()
-    {
-        _controller.CameraOffset();
+        FindObjectOfType<ExecuteClass>().AddInterface(_controller);
     }
 }

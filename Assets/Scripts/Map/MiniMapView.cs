@@ -16,10 +16,6 @@ public class MiniMapView : MonoBehaviour
         _miniMapData = new MiniMapData(_player,_vector3, _camera);
         _mapController = new MiniMapController(_miniMapData);
         _mapController.MiniMapStart();
-    }
-    private void Update()
-    {
-        
-        _mapController.MiniMapUpdate();
+        FindObjectOfType<ExecuteClass>().AddInterface(_mapController);
     }
 }

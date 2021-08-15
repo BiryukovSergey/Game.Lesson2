@@ -13,7 +13,4 @@ public class FLyPanelData
         public Transform Pos { get => _pos; }
         
         public float Numeric { get => _numeric; }
-
-        
-        
     }

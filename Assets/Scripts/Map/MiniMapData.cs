@@ -2,9 +2,9 @@
 
 public class MiniMapData
     {
-        private Transform _playerPosition; // позиция игрока
-        private Vector3 _offset; // отдалеие
-        private Camera _camera; // камера
+        private Transform _playerPosition; 
+        private Vector3 _offset; 
+        private Camera _camera; 
         
         public MiniMapData(Transform pos, Vector3 offset,Camera camera)
         {

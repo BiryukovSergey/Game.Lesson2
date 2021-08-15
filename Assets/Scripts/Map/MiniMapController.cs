@@ -1,6 +1,6 @@
 ﻿ using UnityEngine;
 
- public class MiniMapController
+ public class MiniMapController : IExecute
  {
      private MiniMapData _data;
      private Transform _player;
@@ -20,18 +20,8 @@
          var rt = Resources.Load<RenderTexture>("MapTex");
          _camera.targetTexture = rt;
      }
-
-     public void MiniMapUpdate()
+     public void Update()
      {
-         //var newPosition = _player.transform.position;
-         //newPosition.y = _player.position.y;
-       _camera.transform.position  =  _player.transform.position + _vector3;
-        Debug.Log($"{_camera.transform.position}");
-        
-        
-        
+         _camera.transform.position  =  _player.transform.position + _vector3; 
      }
-     
-     
-
  }

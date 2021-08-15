@@ -16,5 +16,5 @@ public class CameraOffssetData
    public Transform playerTransform { get => _player; }
    public Vector3 Offset { get => _offset; }
    public Camera Camera { get => _camera; }
-   
+
 }
