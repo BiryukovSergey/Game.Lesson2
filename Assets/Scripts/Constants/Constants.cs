@@ -1,4 +1,6 @@
-﻿public static class Constants
+﻿using UnityEngine;
+
+public static class Constants
  {
     /// <summary>
     /// Бонусы которые прибавляюся/уменьшаются
@@ -16,8 +18,9 @@
     public static readonly float BadBonusSpeed = 1; 
     public static readonly float BadBonusJump = 5;
 
-    public static readonly float TimeColldawn = 10.0f;
-
+    public static  float _smooth = 3.0f;
+    public static float TimeColldawn = 10.0f;
     public static readonly string TagPlayer = "Player";
+    public static RenderTexture RenderTextureMaP = Resources.Load<RenderTexture>("MapTex");
  }
 
