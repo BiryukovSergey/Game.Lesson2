@@ -6,9 +6,9 @@ namespace Bonus
 {
     public class BonusView : MonoBehaviour
     {
-        [SerializeField] internal Transform[] badBonusPosition;
-        [SerializeField] internal Transform[] goodBonusPosition;
-        [SerializeField] internal BonusSO so;
+        [SerializeField] private Transform[] badBonusPosition;
+        [SerializeField] private Transform[] goodBonusPosition;
+        [SerializeField] private BonusSO so;
         
         internal BonusBad bad;
         internal BonusGood bonusGood;

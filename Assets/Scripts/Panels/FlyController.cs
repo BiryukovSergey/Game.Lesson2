@@ -8,7 +8,6 @@ public class FlyController
 
         public FlyController(FLyPanelData data)
         {
-            _data = new FLyPanelData(_pos,_numeric);
             _pos = data.Pos;
             _numeric = data.Numeric;
             
