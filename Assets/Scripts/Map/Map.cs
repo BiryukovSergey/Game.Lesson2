@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class Map : MonoBehaviour
-{
+{/*
    private Transform _player;
    [Header("Смещение камеры (минимапа)")]
    public Vector3 _vector3;
@@ -21,5 +21,5 @@ public class Map : MonoBehaviour
         newPosition.y = transform.position.y;
         transform.position = Camera.main.transform.position + _vector3;
         transform.rotation =  Quaternion.Euler(90, 0, 90);
-    }
+    }*/
 }
